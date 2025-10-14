@@ -25,12 +25,6 @@ jobs:
         with:
           files: /
           dest: ${{ github.event.repository.name }} v${{ env.VERSION }} ${{ env.MINECRAFT_VERSION }}.zip
-      - name: 🏷️ Create Tag
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git tag -a "v${{ env.VERSION }}_${{ env.MINECRAFT_VERSION }}" -m "${{ github.event.repository.name }} v${{ env.VERSION }}_${{ env.MINECRAFT_VERSION }}"
-          git push origin "v${{ env.VERSION }}_${{ env.MINECRAFT_VERSION }}"
       - name: 🫸Create Release
         id: create_release
         uses: actions/create-release@v1
