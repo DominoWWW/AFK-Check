@@ -24,15 +24,18 @@ jobs:
       - uses: vimtor/action-zip@v1.2
         with:
           files: /
-          dest: AFK Check v${{ env.VERSION }} $${{ env.MINECRAFT_VERSION }}.zip
+          dest: AFK Check v${{ env.VERSION }} ${{ env.MINECRAFT_VERSION }}.zip
+      - name: 🏷️ Create Tag
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git tag -a "v${{ env.VERSION }} ${{ env.MINECRAFT_VERSION }}" -m "AFK Check v${{ env.VERSION }} ${{ env.MINECRAFT_VERSION }}"
+          git push origin "v${{ env.VERSION }} ${{ env.MINECRAFT_VERSION }}"
       - name: 🫸Create Release
-        id: create_release
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref }}
-          release_name: AFK Check v${{ env.VERSION }} ${{ env.MINECRAFT_VERSION }} ${{ github.ref }}
-          body: ${{ env.NOTES }}
-          draft: false
-          prerelease: false
+            tag_name: 'v${{ github.run_number }}'
+            release_name: 'AFK Check v${{ github.run_number }}'
+            body: '${{ env.NOTES }}'
