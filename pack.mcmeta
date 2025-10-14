@@ -1,0 +1,9 @@
+{
+	"pack": {
+		"description": ["",{"text":"Checks if players are AFK, use ","color":"yellow"},{"text":"/trigger","bold":true,"color":"gold"},{"text":" to check.","color":"yellow"},{"text":"\nby DominoWWW","color":"gold","italic":true}],
+		"pack_format": 48,
+		"supported_formats": [48, 81],
+		"min_format": [88, 0],
+		"max_format": [88, 0]
+    }
+}

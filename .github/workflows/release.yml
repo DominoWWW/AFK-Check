@@ -1,0 +1,36 @@
+name: zip
+on:
+  push:
+    branches:
+      - main
+
+env:
+  VERSION: 1.0.0
+  MINECRAFT_VERSION: 1.21-1.21.10
+  NOTES: |
+    - Initialized project
+    - Added supported_formats field
+    - Updated min_format and max_format to 88 (1.21.10)
+    - Other minor changes
+
+jobs:
+  zip-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🤐 Zip
+        uses: actions/checkout@v2
+      - uses: vimtor/action-zip@v1.2
+        with:
+          files: /
+          dest: AFK Check v$VERSION $MINECRAFT_VERSION.zip
+      - name: 🫸Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: AFK Check v$VERSION $MINECRAFT_VERSION ${{ github.ref }}
+          body: $NOTES
+          draft: false
+          prerelease: false
