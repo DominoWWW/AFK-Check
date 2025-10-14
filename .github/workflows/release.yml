@@ -22,7 +22,7 @@ jobs:
       - uses: vimtor/action-zip@v1.2
         with:
           files: /
-          dest: AFK Check v$VERSION $MINECRAFT_VERSION.zip
+          dest: AFK Check v${{ env.VERSION }} $${{ env.MINECRAFT_VERSION }}.zip
       - name: 🫸Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -30,7 +30,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
           tag_name: ${{ github.ref }}
-          release_name: AFK Check v$VERSION $MINECRAFT_VERSION ${{ github.ref }}
-          body: $NOTES
+          release_name: AFK Check v${{ env.VERSION }} ${{ env.MINECRAFT_VERSION }} ${{ github.ref }}
+          body: ${{ env.NOTES }}
           draft: false
           prerelease: false
