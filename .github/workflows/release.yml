@@ -36,6 +36,7 @@ jobs:
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-            tag_name: 'v${{ github.run_number }}'
-            release_name: 'AFK Check v${{ github.run_number }}'
+            tag_name: 'v${{ env.VERSION }}_${{ env.MINECRAFT_VERSION }}'
+            release_name: 'AFK Check v${{ env.VERSION }} ${{ env.MINECRAFT_VERSION }}'
             body: '${{ env.NOTES }}'
+            body_path: 'AFK Check v${{ env.VERSION }} ${{ env.MINECRAFT_VERSION }}.zip'
