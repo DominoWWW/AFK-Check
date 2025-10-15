@@ -10,9 +10,9 @@ env:
   VERSION: 1.1.0
   MINECRAFT_VERSION: 1.21.8-1.21.10
   NOTES: |
-    - Added configurable threshold
-    - Added Config page
-    - Players who are AFK now have the tag afk
+    - Added configurable threshold.
+    - Added Config page.
+    - Players who are AFK now have the tag afk.
 
 jobs:
   zip-and-release:
