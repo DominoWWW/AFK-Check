@@ -1,0 +1,4 @@
+tellraw @s [{"color":"gold","hover_event":{"action":"show_text","value":[{"text":""},{"text":""}]},"text":"-------[ "},{"color":"light_purple","hover_event":{"action":"show_text","value":[{"text":"By DominoWWW - v1.0.0 1.21.8","color":"gray","italic":true}]},"text":"AFK-Check"},{"color":"gold","hover_event":{"action":"show_text","value":[{"text":"","color":"gold"}]},"text":" ]-------"}]
+tellraw @s [{"color":"aqua","text":"AFK threshold: "},{"color":"yellow","hover_event":{"action":"show_text","value":[{"text":"","color":"gray","italic":true}]},"score":{"name":"$threshold","objective":"afkc.time"}},{"color":"yellow","text":"s "},{"click_event":{"action":"suggest_command","command":"/scoreboard players set $threshold afkc.time "},"color":"green","hover_event":{"action":"show_text","value":[{"text":"Click","color":"gray","italic":true}]},"text":"[Edit]"}]
+tellraw @s {"color":"gold","text":""}
+tellraw @s {"color":"gold","text":"-------------------------"}

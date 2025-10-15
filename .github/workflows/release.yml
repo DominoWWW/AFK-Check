@@ -7,13 +7,12 @@ on:
       - main
 
 env:
-  VERSION: 1.0.0
-  MINECRAFT_VERSION: 1.21-1.21.10
+  VERSION: 1.1.0
+  MINECRAFT_VERSION: 1.21.8-1.21.10
   NOTES: |
-    - Initialized project
-    - Added supported_formats field
-    - Updated min_format and max_format to 88 (1.21.10)
-    - Other minor changes
+    - Added configurable threshold
+    - Added Config page
+    - Players who are AFK now have the tag afk
 
 jobs:
   zip-and-release:
